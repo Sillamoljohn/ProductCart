@@ -1,0 +1,42 @@
+
+.card {
+    height: auto;
+    background-repeat: no-repeat;
+    padding:0px 60px;
+    .productDetails {
+        display: flex;
+        border-bottom: 1px solid black;
+        .productData {
+            padding-left: 55px;
+            h3 {
+                color: green;
+            }
+            .buttonSection {
+                display: flex;
+                .btn {
+                    background: green;
+                    color: white;
+                    border-radius: 5px;
+                    border: green;
+                    height: 100%;
+                    padding: 10px;
+                }
+                p {
+                    margin-top: 10px;
+                }
+                .roundData {
+                    border-radius: 100%;
+                    margin-left: 15px;
+                    margin-right: 15px;
+                }
+            }
+        }
+        .productImage {
+            img {
+                height: 154px;
+                margin-top: 40px;
+                border-radius: 5px;
+            }
+        }
+    }
+}
