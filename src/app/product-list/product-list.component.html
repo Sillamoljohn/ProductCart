@@ -1,15 +1,16 @@
 
  <h2>PRODUCT LISTS</h2>
-<app-card *ngFor="let card of cards"  [card]="card"></app-card>
+<app-card *ngFor="let card of cards"  [card]="card" (messageEvent)="receiveMessage($event)"></app-card>
+<!-- Message: {{message}} -->
 <div class="footerPart">
     <div class="detailsSection">
         <div class="section1">
             <h4>Quantity</h4>
-            <p>33</p>
+        <p>{{totalCount}}</p>
         </div>
         <div class="section1">
             <h4>Total</h4>
-            <p>67567</p>
+        <p>{{totalPrice}}</p>
         </div>
         <div class="buttonSection">
             <button type="button" class="btn" (click)="openDialog()">Check Out</button>

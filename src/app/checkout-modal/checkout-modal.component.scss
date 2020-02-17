@@ -1,12 +1,86 @@
-.mainContainer{
-  width:50vw;
-  height: 25vh;
+.mainContainer {
+  width: 50vw;
   text-align: center;
 
-  h2{
-    color:blue;
+  h2 {
+    color: blue;
   }
-  p{
-color:green;
+  p {
+    color: green;
   }
+  .btn {
+    background-color: green;
+    border: 1px solid black;
+    color: white;
+    font-size: 20px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  table {
+    tr {
+      border: solid 1px black;
+    }
+    img {
+      height: 154px;
+      margin-top: 40px;
+      border-radius: 5px;
+    }
+  }
+  .total {
+    text-align: right;
+    font-size: 20px;
+    margin: 10px 57px 20px 0px;
+    font-weight: 700;
+  }
+  .card {
+    height: auto;
+    background-repeat: no-repeat;
+    padding: 0px 60px;
+    .productDetails {
+      display: flex;
+      border-bottom: 1px solid black;
+      .productData {
+        padding-left: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h3,
+        p {
+          color: green;
+          margin-bottom: 0px;
+          margin-right: 10px;
+        }
+        .buttonSection {
+          display: flex;
+          .btn {
+            background: green;
+            color: white;
+            border-radius: 5px;
+            border: green;
+            height: 100%;
+            padding: 10px;
+          }
+          p {
+            margin-top: 10px;
+            
+          }
+        
+          .roundData {
+            border-radius: 100%;
+            margin-left: 15px;
+            margin-right: 15px;
+          }
+        }
+      }
+      .productImage {
+        img {
+          height: 50px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  
 }
+
