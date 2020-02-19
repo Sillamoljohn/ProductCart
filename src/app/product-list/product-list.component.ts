@@ -1,3 +1,4 @@
+import { ProductService } from "./../product.service";
 import { Component, OnInit } from "@angular/core";
 import { CardComponent } from "../card/card.component";
 import { CheckoutModalComponent } from "../checkout-modal/checkout-modal.component";
@@ -9,53 +10,27 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
   styleUrls: ["./product-list.component.scss"]
 })
 export class ProductListComponent implements OnInit {
-  cards = [
-    {
-      id: 101,
-      brandName: "Puma",
-      productName: "Shoes",
-      quantity: 0,
-      price: 5000,
-      mrf: 20,
-      productImage: "assets/Images/51cwB5iZ28L.jpg",
-      offerText: 20
-    },
-    {
-      id: 102,
-      brandName: "Nike",
-      productName: "Bags",
-      quantity: 0,
-      price: 2600,
-      mrf: 670,
-      productImage: "assets/Images/nikeBags.jpeg",
-      offerText: 40
-    },
-    {
-      id: 103,
-      brandName: "Adidas",
-      productName: "Jackets",
-      quantity: 0,
-      price: 3000,
-      mrf: 900,
-      productImage: "assets/Images/jacket.jpg",
-      offerText: 60
-    }
-  ];
+
   totalCount = 0;
   totalPrice = 0;
   message: string;
   name;
   brandImage;
   productCount;
+  CardDetails;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private ProductService: ProductService
+  ) {}
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.getProductList();
+  }
   receiveMessage(event) {
     this.message = event;
-    console.log("event", event);
-    console.log("cards", this.cards);
+    // console.log("event", event);
+    // console.log("cards", this.CardDetails);
     this.calculateTotalProductPrice();
   }
 
@@ -63,27 +38,25 @@ export class ProductListComponent implements OnInit {
     this.totalPrice = 0;
     this.totalCount = 0;
 
-    this.cards.forEach(ele => {
+    this.CardDetails.forEach(ele => {
       this.totalPrice += ele.price * ele.quantity;
       this.totalCount += ele.quantity;
     });
   }
 
   openDialog() {
-    console.log(this.cards);
-    // this.cards.forEach(ele => {
-    //   if(ele.quantity > 0) {
-    //     this.name = ele.productName;
-    //     this.brandImage = ele.productImage;
-    //     this.productCount = ele.quantity;
-    //     this.totalCount += ele.quantity;
-    //     this.totalPrice += ele.price * ele.quantity;
-    //   }
-   
-    // });
+    console.log(this.CardDetails);
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = this.cards,
-    this.totalPrice = this.totalPrice,
-    this.dialog.open(CheckoutModalComponent, dialogConfig);
+    (dialogConfig.data = this.CardDetails),
+      (this.totalPrice = this.totalPrice),
+      this.dialog.open(CheckoutModalComponent, dialogConfig);
+  }
+  getProductList = () => {
+    this.ProductService.getProductDetails().subscribe((res: any) => {
+      if (res.status === 200) {
+        this.CardDetails = res.body.data;
+        console.log('CardDetails', this.CardDetails);
+      }
+    });
   }
 }

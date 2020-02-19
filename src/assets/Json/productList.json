@@ -1,0 +1,34 @@
+{
+    "data": [
+    {
+      "id": 101,
+     " brandName": "Puma",
+      "productName": "Shoes",
+      "quantity": 0,
+      "price": 5000,
+      "mrf": 20,
+      "productImage": "assets/Images/51cwB5iZ28L.jpg",
+      "offerText": 20
+    },
+    {
+      "id": 102,
+     " brandName": "Nike",
+      "productName": "Bags",
+      "quantity": 0,
+      "price": 2600,
+      "mrf": 670,
+      "productImage": "assets/Images/nikeBags.jpeg",
+      "offerText": 40
+    },
+    {
+      "id": 103,
+     " brandName": "Adidas",
+      "productName": "Jackets",
+      "quantity": 0,
+      "price": 3000,
+      "mrf": 900,
+      "productImage": "assets/Images/jacket.jpg",
+      "offerText": 60
+    }
+  ]
+}

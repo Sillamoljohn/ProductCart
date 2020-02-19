@@ -9,7 +9,7 @@ import { ProductListComponent } from "../product-list/product-list.component";
   styleUrls: ["./checkout-modal.component.scss"]
 })
 export class CheckoutModalComponent implements OnInit {
-  totalprice=0;
+  totalprice = 0;
   newArray;
   constructor(
     public dialogRef: MatDialogRef<CheckoutModalComponent>,
@@ -21,11 +21,9 @@ export class CheckoutModalComponent implements OnInit {
       this.totalprice += ele.price * ele.quantity;
     });
   }
-
   onNoClick(): void {
     this.dialogRef.close();
   }
-
   ngOnInit() {
     console.log(this.data);
   }

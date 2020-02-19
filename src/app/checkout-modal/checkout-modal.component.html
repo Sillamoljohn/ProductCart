@@ -1,27 +1,6 @@
 
 <div class="mainContainer">
     <h2>Transaction SuccessFull</h2>
-<!-- <table  style="width:100%" >
-    <tr>
-      <th>Product Name</th>
-      <th>Product Image</th>
-      <th>Product quantity</th>
-      <th>Product price</th>
-    </tr>
-    <div *ngFor="let productDetails of newArray" style="width: 100%;">
-<tr *ngIf="productDetails.quantity > 0">
-    <td>{{productDetails.brandName}}</td>
-    <td>  <img src={{productDetails.productImage}}></td>
-    <td>{{productDetails.quantity}}</td>
-    <td>{{productDetails.price}}</td>
-</tr>
-</div>
-
-    <tr>
-        <td colspan="4">Total: {{totalprice}}</td>
-    </tr>
-  </table> -->
-
   <div class="card" *ngFor="let productDetails of newArray">
     <div class="productDetails" *ngIf="productDetails.quantity > 0">
         <div class="productImage">

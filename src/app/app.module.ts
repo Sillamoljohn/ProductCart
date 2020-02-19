@@ -22,6 +22,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CardComponent } from './card/card.component';
 import { CheckoutModalComponent } from './checkout-modal/checkout-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent,
@@ -48,6 +49,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatAutocompleteModule,
     MatInputModule,
     MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
