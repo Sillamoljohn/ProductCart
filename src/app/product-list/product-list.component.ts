@@ -1,6 +1,6 @@
 import { DataSharingService } from "./../shared/service/data-sharing.service";
 import { ProductService } from "./../product.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { CardComponent } from "../card/card.component";
 import { CheckoutModalComponent } from "../checkout-modal/checkout-modal.component";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
   productCount;
   CardDetails = [];
   searchText: string = null;
+  @ViewChild('cardCheld') cardCompo: CardComponent;
 
   constructor(
     public dialog: MatDialog,
@@ -40,6 +41,7 @@ export class ProductListComponent implements OnInit {
       x[productIndex].quantity  = 0;
       this.CardDetails = x;
       this.calculateTotalProductPrice();
+      this.cardCompo.onChangeOfData();
     });
 
   }

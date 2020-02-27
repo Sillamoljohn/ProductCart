@@ -13,7 +13,7 @@ import {
   templateUrl: "./card.component.html",
   styleUrls: ["./card.component.scss"]
 })
-export class CardComponent implements  OnChanges {
+export class CardComponent implements OnInit {
   @Input() card;
   itemCount = 0;
   initialValue = 0;
@@ -22,8 +22,10 @@ export class CardComponent implements  OnChanges {
 
   constructor() {}
 
+  ngOnInit() {}
 
-  ngOnChanges() {
+
+  onChangeOfData() {
     console.log(this.card);
     this.itemCount = this.card.quantity;
   }

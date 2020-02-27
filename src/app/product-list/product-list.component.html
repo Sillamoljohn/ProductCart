@@ -36,7 +36,7 @@
      </div>
      <div class="row">
          <div class="col-md-6">
-            <app-card *ngFor="let card of CardDetails | search: searchText "  [card]="card"  (messageEvent)="receiveMessage($event)">
+            <app-card #cardCheld *ngFor="let card of CardDetails | search: searchText "  [card]="card"  (messageEvent)="receiveMessage($event)">
             </app-card>
          </div>
          <div class="col-md-6">
@@ -52,7 +52,7 @@
                     </div>
                     <div class="buttonSection">
                         <button type="button" class="btn" [disabled] ="totalCount == 0" (click)="openDialog()">Check Out</button>
-                    <!-- <p>{{CardDetails?.brandName}}</p> -->
+                    <p >{{CardDetails?.brandName}}</p>
                     </div>
                 </div>
             </div>
