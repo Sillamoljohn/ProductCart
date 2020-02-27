@@ -23,17 +23,26 @@ import { CardComponent } from './card/card.component';
 import { CheckoutModalComponent } from './checkout-modal/checkout-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CategoryPipe } from './pipe/search';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [AppComponent,
     ProductListComponent,
     CardComponent,
-    CheckoutModalComponent],
+    CheckoutModalComponent,
+    CategoryPipe
+  ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    MatButtonModule,
     MatCheckboxModule,
     MatRadioModule,
     MatSelectModule,
@@ -49,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatAutocompleteModule,
     MatInputModule,
     MatDialogModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

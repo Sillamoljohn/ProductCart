@@ -1,24 +1,62 @@
 
- <h2>PRODUCT LISTS</h2>
-<app-card *ngFor="let card of CardDetails"  [card]="card" (messageEvent)="receiveMessage($event)">
-    <p>{{CardDetails?.brandName}}</p>
-</app-card>
-<div class="footerPart">
-
-    <div class="detailsSection">
-        <div class="section1">
-            <h4>Quantity</h4>
-        <p>{{totalCount}}</p>
+ <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Collections</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <p class="mb-0 mr-3" >Cart</p>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> {{totalCount}} Items</button>
+          </form>
         </div>
-        <div class="section1">
-            <h4>Total</h4>
-        <p>{{totalPrice}}</p>
-        </div>
-        <div class="buttonSection">
-            <button type="button" class="btn" [disabled] ="totalCount == 0" (click)="openDialog()">Check Out</button>
-            <button class="btn" type="button" (click)="getProductList();">test</button>
-        <p>{{CardDetails?.brandName}}</p>
-
-        </div>
-    </div>
-</div>
+      </nav>
+ </div>
+ <div class="container">
+     <div class="row">
+         <div class="col-md-12">
+            <h2>PRODUCT LISTS</h2>
+            <div class="search-hero mb-3">
+                <input type="text" [(ngModel)]="searchText"  class="form-control" placeholder="Search by product and  brand" />  
+             </div>
+           </div>
+     </div>
+     <div class="row">
+         <div class="col-md-6">
+            <app-card *ngFor="let card of CardDetails | search: searchText "  [card]="card"  (messageEvent)="receiveMessage($event)">
+            </app-card>
+         </div>
+         <div class="col-md-6">
+            <div class="footerPart">
+                <div class="detailsSection">
+                    <div class="section1">
+                        <h4>Quantity</h4>
+                    <p>{{totalCount}}</p>
+                    </div>
+                    <div class="section1">
+                        <h4>Total</h4>
+                    <p>{{totalPrice}}</p>
+                    </div>
+                    <div class="buttonSection">
+                        <button type="button" class="btn" [disabled] ="totalCount == 0" (click)="openDialog()">Check Out</button>
+                    <!-- <p>{{CardDetails?.brandName}}</p> -->
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+ </div>
+ 

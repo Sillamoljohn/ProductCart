@@ -38,4 +38,23 @@ h2{
     text-align: center;
 
 }
-
+.search-hero .form-control{
+    border: 0px;
+    border-bottom: 2px solid green;
+    border-radius: 0px;
+}
+.form-control:focus { 
+    outline: 0;
+    box-shadow: none; 
+}
+.bg-light {
+    background-color: #008000!important;
+}
+.container-fluid{
+    padding:0px;
+}
+.form-inline p{
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+}

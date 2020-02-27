@@ -34,12 +34,7 @@
     font-weight: 700;
   }
   .card {
-    height: auto;
-    background-repeat: no-repeat;
-    padding: 0px 60px;
     .productDetails {
-      display: flex;
-      border-bottom: 1px solid black;
       .productData {
         padding-left: 55px;
         display: flex;
@@ -73,14 +68,17 @@
           }
         }
       }
-      .productImage {
-        img {
-          height: 50px;
-          border-radius: 5px;
-        }
-      }
+      
     }
   }
-  
+  .productImage {
+    img {
+     width:100%;
+      border-radius: 5px;
+    }
+  }
+  .cardDetails{
+    align-items: center;
+  }
 }
 

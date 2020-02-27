@@ -1,3 +1,4 @@
+import { DataSharingService } from "./../shared/service/data-sharing.service";
 import { ProductService } from "./../product.service";
 import { Component, OnInit } from "@angular/core";
 import { CardComponent } from "../card/card.component";
@@ -10,29 +11,61 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
   styleUrls: ["./product-list.component.scss"]
 })
 export class ProductListComponent implements OnInit {
-
   totalCount = 0;
   totalPrice = 0;
   message: string;
   name;
   brandImage;
   productCount;
-  CardDetails;
+  CardDetails = [];
+  searchText: string = null;
 
   constructor(
     public dialog: MatDialog,
-    private ProductService: ProductService
+    private productService: ProductService,
+    private dataSharingService: DataSharingService
   ) {}
+
 
   ngOnInit() {
     this.getProductList();
+    // this.getUpdatedCount();
+
+    console.log(this.totalCount);
+
+    this.dataSharingService.productId.subscribe((data) => {
+      console.log('CardDetails', data, this.CardDetails);
+      const productIndex =  this.CardDetails.indexOf(data);
+      const x =  this.CardDetails;
+      x[productIndex].quantity  = 0;
+      this.CardDetails = x;
+      this.calculateTotalProductPrice();
+    });
+
   }
+
   receiveMessage(event) {
     this.message = event;
     // console.log("event", event);
-    // console.log("cards", this.CardDetails);
+    console.log("cards", this.CardDetails);
     this.calculateTotalProductPrice();
   }
+
+
+  getUpdatedCount() {
+    console.log(this.totalCount);
+    this.dataSharingService.productId.subscribe((data) => {
+      console.log('CardDetails', data, this.CardDetails);
+      const productIndex =  this.CardDetails.indexOf(data);
+      const x =  this.CardDetails;
+      x[productIndex].quantity  = 0;
+      this.CardDetails = x;
+      this.calculateTotalProductPrice();
+    });
+  }
+
+
+  
 
   calculateTotalProductPrice() {
     this.totalPrice = 0;
@@ -44,19 +77,24 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+
   openDialog() {
     console.log(this.CardDetails);
     const dialogConfig = new MatDialogConfig();
     (dialogConfig.data = this.CardDetails),
       (this.totalPrice = this.totalPrice),
+      (this.totalCount = this.totalCount),
       this.dialog.open(CheckoutModalComponent, dialogConfig);
   }
+
+
   getProductList = () => {
-    this.ProductService.getProductDetails().subscribe((res: any) => {
+    this.productService.getProductDetails().subscribe((res: any) => {
       if (res.status === 200) {
         this.CardDetails = res.body.data;
-        console.log('CardDetails', this.CardDetails);
+        console.log("CardDetails", this.CardDetails);
       }
     });
   }
+
 }

@@ -2,14 +2,15 @@
 .card {
     height: auto;
     background-repeat: no-repeat;
-    padding:0px 60px;
+    padding:20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     .productDetails {
         display: flex;
-        border-bottom: 1px solid black;
         .productData {
-            padding-left: 55px;
-            h3 {
-                color: green;
+            h2 {
+                color: green !important;
+                margin-bottom: 0px;
             }
             .buttonSection {
                 display: flex;
@@ -33,9 +34,14 @@
         }
         .productImage {
             img {
-                height: 154px;
-                margin-top: 40px;
                 border-radius: 5px;
+                width:100%;
+            }
+            p{
+                color: #ecec06;
+                font-weight: 800;
+                font-size: 20px;
+                margin-top:10px;
             }
         }
     }
