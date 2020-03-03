@@ -1,6 +1,7 @@
 
  <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <img class="logo" src="../../assets/Images/house-logo.png">
         <a class="navbar-brand" href="#">My Collections</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -19,11 +20,48 @@
             </li> -->
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <p class="mb-0 mr-3" >Cart</p>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> {{totalCount}} Items</button>
+            <img src="assets/Images/cart.png" class="mr-2" >
+            <span> {{totalCount}}</span>
+            <button class="btn btn-outline-success my-2 my-sm-0" [disabled] ="totalCount == 0" (click)="openDialog()"type="submit">{{totalCount}} Items</button>
           </form>
         </div>
       </nav>
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../../assets/Images/XCM-Header-PC2._SX3000_QL85_.jpg" alt="Los Angeles" >
+            <div class="carousel-caption">
+              <h3>Los Angeles</h3>
+              <p>We had such a great time in LA!</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/Images/3000x770-Clearance-PC._SX3000_QL85_.jpg" alt="Chicago" >
+            <div class="carousel-caption">
+              <h3>Chicago</h3>
+              <p>Thank you, Chicago!</p>
+            </div>   
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/Images/XCM-Header-PC-2-2._CB421645444_.jpg" alt="New York" >
+            <div class="carousel-caption">
+              <h3>New York</h3>
+              <p>We love the Big Apple!</p>
+            </div>   
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
  </div>
  <div class="container">
      <div class="row">
@@ -35,11 +73,12 @@
            </div>
      </div>
      <div class="row">
-         <div class="col-md-6">
+         <div class="col-md-12 GridLayout">
+        
             <app-card #cardCheld *ngFor="let card of CardDetails | search: searchText "  [card]="card"  (messageEvent)="receiveMessage($event)">
-            </app-card>
+            </app-card>     
          </div>
-         <div class="col-md-6">
+         <!-- <div class="col-md-6">
             <div class="footerPart">
                 <div class="detailsSection">
                     <div class="section1">
@@ -47,16 +86,15 @@
                     <p>{{totalCount}}</p>
                     </div>
                     <div class="section1">
-                        <h4>Total</h4>
+                        <h4>Total</h4> 
                     <p>{{totalPrice}}</p>
                     </div>
                     <div class="buttonSection">
                         <button type="button" class="btn" [disabled] ="totalCount == 0" (click)="openDialog()">Check Out</button>
-                    <p >{{CardDetails?.brandName}}</p>
                     </div>
                 </div>
             </div>
-         </div>
+         </div> -->
      </div>
  </div>
  

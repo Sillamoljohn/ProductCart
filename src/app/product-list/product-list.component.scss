@@ -1,60 +1,103 @@
-h2{
-    text-align: center;
-    color:red;
-    font-size: 25px;
-    text-decoration: underline;
-    margin-top:10px;
+.logo{
+    width:5%;
 }
-.detailsSection{
-    background-color: palevioletred;
-    margin:10px 60px;
-    padding: 10px 0px;
-    .section1{
-        display: flex;
-        margin-bottom: 5px;
-        align-items: center;
-        justify-content: center;
-        h4,p{
-            margin:0px;
-            font-size: 30px;
-
-        }
-        p{
-            margin-left:10px;
-        }
+h2 {
+  text-align: center;
+  color: red;
+  font-size: 25px;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.detailsSection {
+  background-color: palevioletred;
+  margin: 10px 60px;
+  padding: 10px 0px;
+  .section1 {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+    h4,
+    p {
+      margin: 0px;
+      font-size: 30px;
     }
-    .buttonSection{
-        .btn{
-            background-color: transparent;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            border-color: black;
-            padding: 10px;
-            border-radius: 5px;
-
-        }
+    p {
+      margin-left: 10px;
     }
-    text-align: center;
+  }
 
+  text-align: center;
 }
-.search-hero .form-control{
-    border: 0px;
-    border-bottom: 2px solid green;
-    border-radius: 0px;
+.search-hero .form-control {
+  border: 0px;
+  border-bottom: 2px solid green;
+  border-radius: 0px;
 }
-.form-control:focus { 
-    outline: 0;
-    box-shadow: none; 
+.form-control:focus {
+  outline: 0;
+  box-shadow: none;
 }
 .bg-light {
-    background-color: #008000!important;
+  background-color: #008000 !important;
 }
-.container-fluid{
-    padding:0px;
+.container-fluid {
+  padding: 0px;
 }
-.form-inline p{
-    font-size: 15px;
+.form-inline p {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.GridLayout {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+.buttonSection {
+  .btn {
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
     font-weight: 600;
-    color: #fff;
+    border-color: black;
+    padding: 10px;
+    border-radius: 5px;
+  }
 }
+.form-inline {
+  position: relative;
+}
+.form-inline span {
+  position: absolute;
+  top: 0px;
+  left: 17px;
+  color: white;
+  background: red;
+  width: 20px;
+  text-align: center;
+  border-radius: 100%;
+}
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 1024px) {
+  .GridLayout {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 425px){
+    .GridLayout {
+        grid-template-columns: 1fr 1fr;
+      } 
+}
+@media (max-width: 375px){
+    .GridLayout {
+        grid-template-columns: 1fr;
+      } 
+}
+
+

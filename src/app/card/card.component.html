@@ -1,18 +1,20 @@
-<div class="row mb-3">
-    <div class="col-md-12 card">
+
+<div class="card">
         <div class=" row  productDetails">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="productImage">
                     <img src={{card.productImage}}>
-                    <p>{{card.offerText}}% OFF</p>
+                    <p class="mb-0">{{card.offerText}}% OFF</p>
                 </div>
             </div>
-            <div class="col-md-8">
+        </div>
+        <div class="row productDetails">
+            <div class="col-md-12">
                 <div class="productData">
                     <h2>{{card.brandName}}</h2>
-                    <p>{{card.productName}}</p>
-                    <p>MRP {{card.mrf }}</p>
-                    <p><b>RS. {{card.price}}</b></p>
+                    <p class="mb-0">{{card.productName}}</p>
+                    <p class="mb-0">MRP {{card.mrf }}</p>
+                    <p class="mb-0"><b>RS. {{card.price}}</b></p>
                     <div class="buttonSection">
                         <button type="submit" class="btn" (click)="addToCart()">Add to Cart</button>
                         <button class="btn roundData" type="button" (click)="reduceItems()">-</button>
@@ -22,5 +24,20 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
+<!-- <div class="card">
+    <img class="card-img-top" src={{card.productImage}} alt="Card image" style="width:100%">
+    <p>{{card.offerText}}% OFF</p>
+    <div class="card-body">
+      <h4 class="card-title">{{card.brandName}}</h4>
+      <p  class="card-text">{{card.productName}}</p>
+      <p  class="card-text">MRP {{card.mrf }}</p>
+      <p  class="card-text"><b>RS. {{card.price}}</b></p>
+      <div class="buttonSection">
+        <button type="submit" class="btn" (click)="addToCart()">Add to Cart</button>
+        <button class="btn roundData" type="button" (click)="reduceItems()">-</button>
+        <p>{{itemCount}}</p>
+        <button class="btn roundData" type="button" (click)="addItems()">+</button>
+    </div>
+    </div>
+  </div> -->
